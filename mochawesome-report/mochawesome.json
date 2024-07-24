@@ -1,0 +1,168 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 2,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-07-24T03:45:42.098Z",
+    "end": "2024-07-24T03:45:42.369Z",
+    "duration": 271,
+    "testsRegistered": 4,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9407cf73-b000-4656-af77-0cb19e3151c3",
+      "title": "",
+      "fullFile": "D:\\Carrer\\SANBERCODE\\QA Automation Batch 57\\sanbercode-api-automation\\sanbercode-api-automation\\TUGAS\\test\\specs\\getToken.module.js",
+      "file": "\\TUGAS\\test\\specs\\getToken.module.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Import token",
+          "fullTitle": "Import token",
+          "timedOut": false,
+          "duration": 176,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const token = await createToken()\nconsole.log(await token)",
+          "err": {},
+          "uuid": "e5589ce0-32c6-40a3-85d9-fcf0812ddc4b",
+          "parentUUID": "9407cf73-b000-4656-af77-0cb19e3151c3",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "64f707b9-9c45-4c07-84af-18e9e4665f6c",
+          "title": "Get Token Scenario",
+          "fullFile": "D:\\Carrer\\SANBERCODE\\QA Automation Batch 57\\sanbercode-api-automation\\sanbercode-api-automation\\TUGAS\\test\\specs\\getToken.module.js",
+          "file": "\\TUGAS\\test\\specs\\getToken.module.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Positive - Success Get Token",
+              "fullTitle": "Get Token Scenario Positive - Success Get Token",
+              "timedOut": false,
+              "duration": 78,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n    \"email\" : \"Virtual.cheers@gmail.com\",\n    \"password\" : \"vcs123456\"\n}\n//send request\nconst response = await request (baseUrl)\n    .post(\"/auth\") //endpoint\n    .send(JSON.stringify(payload)) //request body\n    .set(\"Content-Type\", \"aplication/json\") //header   \n    \nexpect((await response).status).to.equal(200)\n//console.log((await response).body)\ntoken = (await response).body.token\n//console.log(await token)",
+              "err": {
+                "message": "AssertionError: expected 415 to equal 200",
+                "estack": "AssertionError: expected 415 to equal 200\n    at Context.<anonymous> (file:///D:/Carrer/SANBERCODE/QA%20Automation%20Batch%2057/sanbercode-api-automation/sanbercode-api-automation/TUGAS/test/specs/getToken.module.js:20:44)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 415\n+ 200\n"
+              },
+              "uuid": "7033d5d5-9441-4c93-ae96-1872c14307f5",
+              "parentUUID": "64f707b9-9c45-4c07-84af-18e9e4665f6c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Positive - Success Implement Token",
+              "fullTitle": "Get Token Scenario Positive - Success Implement Token",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(await token)",
+              "err": {},
+              "uuid": "71332495-ad43-4ac0-8f8d-08bea9a9dd4c",
+              "parentUUID": "64f707b9-9c45-4c07-84af-18e9e4665f6c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Positive - Success Put Token",
+              "fullTitle": "Get Token Scenario Positive - Success Put Token",
+              "timedOut": false,
+              "duration": 0,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//put method\nconst response = await request(baseUrl)\n    .put(\"/authentications\")\n    .send(payload)\n    .set(\"Cookie\", token)\nconsole.log(await token)",
+              "err": {
+                "message": "ReferenceError: payload is not defined",
+                "estack": "ReferenceError: payload is not defined\n    at Context.<anonymous> (file:///D:/Carrer/SANBERCODE/QA%20Automation%20Batch%2057/sanbercode-api-automation/sanbercode-api-automation/TUGAS/test/specs/getToken.module.js:34:19)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "f41d220b-4dc0-4e55-970e-7e5d56b1e450",
+              "parentUUID": "64f707b9-9c45-4c07-84af-18e9e4665f6c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "71332495-ad43-4ac0-8f8d-08bea9a9dd4c"
+          ],
+          "failures": [
+            "7033d5d5-9441-4c93-ae96-1872c14307f5",
+            "f41d220b-4dc0-4e55-970e-7e5d56b1e450"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 78,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [
+        "e5589ce0-32c6-40a3-85d9-fcf0812ddc4b"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 176,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
